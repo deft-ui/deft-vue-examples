@@ -3,7 +3,7 @@ import {renderer} from "deft-vue";
 
 function initWindow(): Window {
     const window = globalThis.mainWindow || (globalThis.mainWindow = new Window({
-        title: 'Deft App',
+        title: 'SystemInfo',
         width: 400,
         height: 400,
     }));

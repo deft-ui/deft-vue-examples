@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DeftDemoApp"
+rootProject.name = "SystemInfo"
 include ':app'
