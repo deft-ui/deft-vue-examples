@@ -29,15 +29,7 @@ function formatMem(value) {
 </script>
 
 <template>
-  <container :style="{
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    height: '100%',
-    width: '100%',
-    gap: 20,
-    padding: '0 20',
-
-  }">
+  <container class="main">
     <container :style="{width: '100%', gap: 30}">
       <container>
         <container>系统名称：{{sysInfo.sysName}}</container>
@@ -47,19 +39,46 @@ function formatMem(value) {
         <container>总内存量：{{formatMem(sysInfo.memTotal)}}</container>
       </container>
 
-      <container :style="{width: '100%', gap: 4}">
-        <container :style="{width: '100%', justifyContent: 'space-between', flexDirection: 'row'}">
+      <container class="mem-info">
+        <container class="mem-info-text-container">
           <container>已用内存：{{ formatMem(sysInfo.memUsed) }}</container>
           <container>可用内存：{{ formatMem(sysInfo.memTotal - sysInfo.memUsed) }}</container>
         </container>
-        <container :style="{width: '100%', height: 10, background: '#333'}">
-          <container :style="{
-          width: Math.round(100 * sysInfo.memUsed / sysInfo.memTotal) + '%',
-          height: '100%',
-          background: '#375fac'
-        }"></container>
+        <container class="indicator">
+          <container class="indicator-thumb" :style="{
+            width: Math.round(100 * sysInfo.memUsed / sysInfo.memTotal) + '%',
+          }"></container>
         </container>
       </container>
     </container>
   </container>
 </template>
+
+<style scoped>
+.main {
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+  padding: 0 20px;
+}
+.indicator {
+  width: 100%;
+  height: 10px;
+  background: #bbb;
+}
+.indicator-thumb {
+  height: 100%;
+  background: #375fac;
+}
+.mem-info {
+  width: 100%;
+  gap: 4px;
+}
+.mem-info-text-container {
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+</style>

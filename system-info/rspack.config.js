@@ -53,6 +53,9 @@ module.exports = (env, argv) => {
                     }
                 },
                 exclude: /node_modules/
+            },{
+                test: /\.css$/,
+                use: [ 'deft-style-loader', 'css-loader', 'postcss-loader']
             }, {
                 test: /\.js$/,
                 loader: "babel-loader",
